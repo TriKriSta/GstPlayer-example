@@ -1,9 +1,4 @@
 #include "audioengine.h"
-#include <QDebug>
-#include <gst/audio/streamvolume.h>
-#include <gst/controller/gstinterpolationcontrolsource.h>
-#include <gst/controller/gstdirectcontrolbinding.h>
-#include <string>
 
 AudioEngine::AudioEngine(QObject *parent) : QObject(parent) {
     pipeline = new GstElement();
