@@ -1,6 +1,5 @@
 #include "playerform.h"
 #include <QFileDialog>
-#include <QDebug>
 
 PlayerForm::PlayerForm(QWidget *parent) : QWidget(parent) {
     setupUi(this);
@@ -56,18 +55,14 @@ void PlayerForm::sMusicPause() {
 void PlayerForm::sTimer() {
     quint64 len = static_cast<quint64>(pEngine->GetMusicDuration());
     quint64 pos = static_cast<quint64>(pEngine->GetMusicPosition());
-    qDebug() << "Duration: " << len;
-    qDebug() << "Position: " << pos/1000000;
     pSliderDuration->setSliderPosition(100*pos/len);
 }
 
 void PlayerForm::sChengetVolume(int val) {
-    qDebug() << val;
     pEngine->SetVolume((double)val/100);
 }
 
 void PlayerForm::sChengetPosition(int val) {
     quint64 len = static_cast<quint64>(pEngine->GetMusicDuration());
-    qDebug() << len * val / 100;
     pEngine->SetMusicPosition(len * val / 100);
 }
